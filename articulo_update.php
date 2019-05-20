@@ -16,6 +16,7 @@ if ( isset( $_REQUEST["art_isbn"] )
 	&& isset( $_REQUEST["art_pag_fin"] ) 
 	&& isset( $_REQUEST["art_urt"] ) 
 	&& isset( $_REQUEST["art_res"] ) 
+	&& isset( $_REQUEST["art_rev_id"] ) 
 ) 
 {
 
@@ -40,7 +41,8 @@ if ( isset( $_REQUEST["art_isbn"] )
 					'art_pag_ini' => $_REQUEST["art_pag_ini"],
 					'art_pag_fin' => $_REQUEST["art_pag_fin"],
 					'art_urt' => $_REQUEST["art_urt"],
-					'art_res' => $_REQUEST["art_res"]
+					'art_res' => $_REQUEST["art_res"],
+					'art_rev_id' => $_REQUEST["art_rev_id"]
 				]
 			);
 
