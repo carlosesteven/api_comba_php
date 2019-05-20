@@ -4,20 +4,20 @@ require __DIR__ . '/src/base_datos.php';
 
 $respuesta = array();
 
-if ( isset( $_REQUEST["art_issn"] ) )
+if ( isset( $_REQUEST["art_isbn"] ) )
 {
 
-	$existencia = $db->where('art_issn', $_REQUEST["art_issn"] )->has('articulo');
+	$existencia = $db->where('art_isbn', $_REQUEST["art_isbn"] )->has('articulo');
 
 	if ( !$existencia ) 
 	{
 		$respuesta["estado"] = "error";
 		$respuesta["detalles"] = "articulo no existe";
 	}else{
-		$valida = $db->where('art_issn', $_REQUEST["art_issn"] )->getOne('articulo');
+		$valida = $db->where('art_isbn', $_REQUEST["art_isbn"] )->getOne('articulo');
 
 		$respuesta["estado"] = "ok";
-		$respuesta["detalles"] = "se encontro el articulo " . $_REQUEST["art_issn"];
+		$respuesta["detalles"] = "se encontro el articulo " . $_REQUEST["art_isbn"];
 
 		$respuesta["user_data"] = $valida;
 	}

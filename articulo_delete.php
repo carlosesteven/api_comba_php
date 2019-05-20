@@ -4,10 +4,10 @@ require __DIR__ . '/src/base_datos.php';
 
 $respuesta = array();
 
-if ( isset( $_REQUEST["art_issn"] ) )
+if ( isset( $_REQUEST["art_isbn"] ) )
 {
 
-	$existencia = $db->where('art_issn', $_REQUEST["art_issn"] )->has('articulo');
+	$existencia = $db->where('art_isbn', $_REQUEST["art_isbn"] )->has('articulo');
 
 	if ( !$existencia ) 
 	{
@@ -15,7 +15,7 @@ if ( isset( $_REQUEST["art_issn"] ) )
 		$respuesta["detalles"] = "articulo no existe";
 	}else{
 		$valida = $db
-		->where('art_issn', $_REQUEST["art_issn"])
+		->where('art_isbn', $_REQUEST["art_isbn"])
 		->delete('articulo');
 
 		if ( $valida == 1 ) 

@@ -4,7 +4,7 @@ require __DIR__ . '/src/base_datos.php';
 
 $respuesta = array();
 
-if ( isset( $_REQUEST["art_issn"] )
+if ( isset( $_REQUEST["art_isbn"] )
 	&& isset( $_REQUEST["art_doi"] ) 
 	&& isset( $_REQUEST["art_ind"] )
 	&& isset( $_REQUEST["art_idi"] )
@@ -19,17 +19,17 @@ if ( isset( $_REQUEST["art_issn"] )
 ) 
 {
 
-	$existencia = $db->where('art_issn', $_REQUEST["art_issn"] )->has('articulo');
+	$existencia = $db->where('art_isbn', $_REQUEST["art_isbn"] )->has('articulo');
 
 	if ( !$existencia ) 
 	{
 		$respuesta["estado"] = "error";
 		$respuesta["detalles"] = "articulo no existe";
 	}else{
-		$valida = $db->where('art_issn', $_REQUEST["art_issn"])
+		$valida = $db->where('art_isbn', $_REQUEST["art_isbn"])
 		->update('articulo', 
 				[
-					'art_issn' => $_REQUEST["art_issn"], 
+					'art_isbn' => $_REQUEST["art_isbn"], 
 					'art_doi' => $_REQUEST["art_doi"],
 					'art_ind' => $_REQUEST["art_ind"],
 					'art_idi' => $_REQUEST["art_idi"],
