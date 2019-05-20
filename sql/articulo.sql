@@ -17,6 +17,7 @@ CREATE TABLE public.articulo
     art_pag_fin bigint,
     art_urt text COLLATE pg_catalog."default",
     art_res text COLLATE pg_catalog."default",
+    art_rev_id text COLLATE pg_catalog."default",
     CONSTRAINT articulo_pkey PRIMARY KEY (art_id)
 )
 WITH (
